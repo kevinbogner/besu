@@ -1824,7 +1824,7 @@ public class BesuCommand implements DefaultCommandValues, Runnable {
       logger.info("Using the Java implementation of the blake2bf algorithm");
     }
 
-    if (getActualGenesisConfigOptions().getCancunTime().isPresent()) {
+    if (!getActualGenesisConfigOptions().getCancunTime().isPresent()) {
       // if custom genesis provided, then trusted setup file is mandatory
       if (genesisFile != null && kzgTrustedSetupFile == null) {
         throw new ParameterException(
